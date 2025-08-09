@@ -1,11 +1,60 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Chatbot</title>
-</head>
-<body>
-  
-</body>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="stlyes.css" />
+    <title>Chat</title>
+  </head>
+  <body>
+    <header>
+      <div>
+        <h1>Chat</h1>
+      </div>
+    </header>
+    <main>
+      <div class="chat_container">
+        <section class="chat_header">
+          <div>
+            <img src="" alt="" class="avatar" />
+            <span class="chat_nome">Chat</span>
+          </div>
+        </section>
+
+        <section class="chat_mensagem" id="chat_mensagem" aria-live="polite">
+          <article class="mensagem bot">
+            <div class="bubble">
+              <p>Olá! Sou seu assistente virtual.</p>
+              <time datetime="2025-08-09T20:10">20:10</time>
+            </div>
+          </article>
+
+          <article class="mensagem user">
+            <div class="bubble">
+              <p>Oi, tudo bem?</p>
+              <time datetime="2025-08-09T20:11">20:11</time>
+            </div>
+          </article>
+        </section>
+
+        <section class="chat_input">
+          <form action="" id="chat_form">
+            <input
+              type="text"
+              id="msgInput"
+              placeholder="Digite sua mensagem..."
+              autocomplete="off"
+              required
+            />
+            <button type="submit" aria-label="Enviar mensagem">➤</button>
+          </form>
+        </section>
+      </div>
+    </main>
+    <footer>
+      <div>
+        <p>&copy; Determinados do grupo 15 - 2025</p>
+      </div>
+    </footer>
+  </body>
 </html>
