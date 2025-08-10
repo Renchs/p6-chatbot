@@ -1,3 +1,19 @@
+:root {
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  --body-bg-color-light: #f0f0f0;
+  --body-bg-color-dark: #23253f;
+
+  --header-bg-color: #1d2937;
+  --header-color: #6d9aad;
+
+  --chat-bg-color-dark: #4c5089;
+
+  --footer-bg-color: #1d2937;
+  --footer-color: #6d9aad;
+}
+
 /* Reset básico */
 * {
   margin: 0;
@@ -6,18 +22,30 @@
 }
 
 body {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: Arial, "Montserrat", sans-serif;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  background: #f0f0f0;
+}
+
+.light-mode {
+  background: var(--body-bg-color-light);
+}
+
+.dark-mode {
+  background: var(--body-bg-color-dark);
 }
 
 /* HEADER */
 header {
-  background-color: #075e54; /* tom WhatsApp */
-  color: white;
+  background-color: var(--header-bg-color);
+  color: var(--header-color);
   padding: 1rem;
+  height: 3rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
   text-align: center;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
@@ -25,6 +53,10 @@ header {
 header h1 {
   font-size: 1.5rem;
   font-weight: bold;
+}
+
+header img {
+  height: inherit;
 }
 
 /* MAIN */
@@ -40,7 +72,7 @@ main {
   width: 100%;
   max-width: 600px;
   height: 80vh;
-  background: white;
+  background: var(--body-bg-color-dark);
   border-radius: 8px;
   display: flex;
   flex-direction: column;
@@ -50,10 +82,11 @@ main {
 
 /* Header interno do chat (avatar + nome) */
 .chat_header {
-  background: #075e54;
-  color: white;
+  background: var(--header-bg-color);
+  color: var(--header-color);
   padding: 10px 15px;
   display: flex;
+  flex-direction: row;
   align-items: center;
   gap: 10px;
   flex-shrink: 0;
@@ -64,12 +97,36 @@ main {
   height: 40px;
   border-radius: 50%;
   object-fit: cover;
-  background: #ccc;
+  background: inherit;
 }
 
 .chat_header .chat_nome {
   font-weight: 600;
   font-size: 1.2rem;
+  align-self: center;
+}
+
+.mode-btn {
+  display: flex;
+  align-self: flex-end;
+  text-decoration: none;
+  padding: 8px 20px;
+  font-size: 12px;
+  border-radius: 25px;
+  border: none;
+}
+
+.light-mode .sun {
+  display: none;
+}
+
+.moon {
+  width: 16px;
+  height: 16px;
+}
+
+.dark-mode .moon {
+  display: none;
 }
 
 /* Área das mensagens */
@@ -77,7 +134,7 @@ main {
   flex: 1;
   padding: 15px;
   overflow-y: auto;
-  background: #ece5dd;
+  background: var(--chat-bg-color-dark);
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -177,8 +234,8 @@ time {
 
 /* FOOTER */
 footer {
-  background-color: #075e54;
-  color: white;
+  background-color: var(--footer-bg-color);
+  color: var(--footer-color);
   text-align: center;
   padding: 0.8rem;
   font-size: 0.9rem;
