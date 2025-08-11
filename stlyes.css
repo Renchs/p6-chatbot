@@ -81,8 +81,17 @@ main {
 }
 
 /* Header interno do chat (avatar + nome) */
+
 .chat_header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 5px;
   background: var(--header-bg-color);
+}
+
+.chat_header_info {
   color: var(--header-color);
   padding: 10px 15px;
   display: flex;
@@ -92,7 +101,7 @@ main {
   flex-shrink: 0;
 }
 
-.chat_header img.avatar {
+.chat_header_info img.avatar {
   width: 40px;
   height: 40px;
   border-radius: 50%;
@@ -100,7 +109,7 @@ main {
   background: inherit;
 }
 
-.chat_header .chat_nome {
+.chat_header_info .chat_nome {
   font-weight: 600;
   font-size: 1.2rem;
   align-self: center;
@@ -108,12 +117,15 @@ main {
 
 .mode-btn {
   display: flex;
-  align-self: flex-end;
+  align-items: center;
+  justify-content: center;
   text-decoration: none;
-  padding: 8px 20px;
+  width: 50px;
+  height: 30px;
   font-size: 12px;
   border-radius: 25px;
   border: none;
+  cursor: pointer;
 }
 
 .light-mode .sun {
@@ -189,11 +201,13 @@ time {
 
 .chat_input form {
   display: flex;
+  justify-content: space-around;
   width: 100%;
+  gap: 4px;
 }
 
 .chat_input input {
-  flex: 1;
+  width: 95%;
   padding: 10px 15px;
   font-size: 1rem;
   border: 1.5px solid #ddd;
@@ -203,15 +217,14 @@ time {
 }
 
 .chat_input input:focus {
-  border-color: #075e54;
+  border-color: var(--chat-bg-color-dark);
 }
 
 .chat_input button {
-  background: #075e54;
+  width: 40px;
+  background: var(--chat-bg-color-dark);
   color: white;
   border: none;
-  padding: 0 18px;
-  margin-left: 10px;
   border-radius: 50%;
   font-size: 1.3rem;
   cursor: pointer;
@@ -219,7 +232,7 @@ time {
 }
 
 .chat_input button:hover {
-  background: #0a806b;
+  background: #363961;
 }
 
 /* Scrollbar customizado para área de mensagens */
@@ -228,8 +241,18 @@ time {
 }
 
 .chat_mensagem::-webkit-scrollbar-thumb {
-  background-color: rgba(7, 94, 84, 0.5);
+  background-color: var(--footer-color);
   border-radius: 3px;
+}
+
+.clear-btn {
+  background-color: red;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  height: 40px;
 }
 
 /* FOOTER */
