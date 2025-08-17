@@ -3,6 +3,8 @@ const chatContainer = document.getElementById("chat_mensagem");
 
 const api = "http://localhost:3000/chat";
 
+let btn_id = 0;
+
 const saveMessage = (message) => {
   localStorage.setItem("chatHistory", JSON.stringify(message));
 };
@@ -32,6 +34,21 @@ function lightDark() {
     : element.classList.replace("dark-mode", "light-mode");
 }
 
+document.addEventListener("DOMContentLoaded", function() {
+
+const copy_btn = document.querySelector(".copy-btn");
+
+copy_btn.addEventListener("animationend", () => {
+copy_btn.blur();
+});
+});
+
+function copyMessage(btn_id) {
+  const btn = document.getElementById(btn_id.toString());
+  const message = btn.previousElementSibling.previousElementSibling.textContent
+  navigator.clipboard.writeText(message)
+}
+
 function createMessage(message, type, hours = "") {
   const messageType = type === "bot" ? "bot" : "user";
 
@@ -54,6 +71,19 @@ function createMessage(message, type, hours = "") {
 
   bubble.appendChild(paragraph);
   bubble.appendChild(time);
+
+  if (messageType === "bot") {
+    const id = btn_id + 1;
+    const copy_btn = document.createElement("button");
+    copy_btn.classList.add("copy-btn");
+    copy_btn.id = (id).toString();
+    copy_btn.innerHTML += '<img src="./images/copy-outline.svg" alt="copy">';
+    copy_btn.onclick = function () {
+      copyMessage(id)
+    };
+    bubble.appendChild(copy_btn);
+  }
+
   article.appendChild(bubble);
 
   const chatMessage = {
